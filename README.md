@@ -28,18 +28,24 @@ graph TB
         AC["<b>avatar-chat</b><br/>Prompt patterns<br/>for character AI"]
         CM["<b>chat-like-human-memory</b><br/>9D Emotion + MBTI<br/>+ Memory"]
         CL["<b>customize-local-llm</b><br/>Local/Cloud<br/>hybrid routing"]
+        SK["<b>nvatar-sdk</b><br/>BehaviorPattern<br/>Registry + God Mode"]
     end
 
     AC --> VS
     CM --> VS
     CL --> VS
+    SK --> VS
+    SK --> CA
 
     VS["<b>vrm-studio</b><br/>3D Avatar + Chat Room"]
+    CA["<b>nvatar-code-assist</b><br/>Claude Code Channel"]
 
     click AC "https://github.com/nskit-io/avatar-chat"
     click CM "https://github.com/nskit-io/chat-like-human-memory"
     click CL "https://github.com/nskit-io/customize-local-llm"
     click VS "https://github.com/nskit-io/vrm-studio"
+    click SK "https://github.com/nskit-io/nvatar-sdk"
+    click CA "https://github.com/nskit-io/nvatar-code-assist"
 ```
 
 ## Projects
@@ -63,6 +69,16 @@ Most conversations are handled locally with sub-second latency. Only factual que
 **3D VRM avatar chat room with Three.js + WebSocket.**
 
 Multi-avatar virtual room with speech bubbles floating above heads, Mixamo animation retargeting, auto-blink, idle breathing, eye tracking, and emotion poses. A lightweight post-RPM demo for the VRM ecosystem.
+
+### [nvatar-sdk](https://github.com/nskit-io/nvatar-sdk)
+**BehaviorPattern SDK — pluggable avatar behaviors.**
+
+Build custom patterns that extend your avatar's capabilities without touching its personality. Your avatar can be a code assistant, language tutor, or therapist — each behavior runs independently with isolated **Franchise Memory**, while the avatar's core identity stays intact. Includes God Mode (context routing + user profiling).
+
+### [nvatar-code-assist](https://github.com/nskit-io/nvatar-code-assist)
+**Claude Code integration via MCP channel.**
+
+The first SDK pattern — relay code commands through the avatar to Claude Code sessions. Progress updates stream back as avatar speech. Built on the BehaviorPattern Registry with full channel lifecycle management.
 
 ### [portable-ai-companion](https://github.com/nskit-io/portable-ai-companion)
 **Cross-app franchise architecture.**
