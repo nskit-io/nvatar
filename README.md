@@ -73,7 +73,7 @@ Multi-avatar virtual room with speech bubbles floating above heads, Mixamo anima
 ### [nvatar-sdk](https://github.com/nskit-io/nvatar-sdk)
 **BehaviorPattern SDK — pluggable avatar behaviors.**
 
-Build custom patterns that extend your avatar's capabilities without touching its personality. Your avatar can be a code assistant, language tutor, or therapist — each behavior runs independently with isolated **Franchise Memory**, while the avatar's core identity stays intact. Includes God Mode (context routing + user profiling).
+Build custom patterns that extend your avatar's capabilities without touching its personality. Your avatar can be a code assistant, language tutor, or therapist — each behavior runs independently with isolated **Franchise Memory**, while the avatar's core identity stays intact. Includes God Mode (context routing + user profiling), **PeerInteractionPattern** (avatar↔avatar autonomy via 10s dice dispatcher with intimacy-aware tone), and a 3-layer multilingual stability stack (SessionState + dynamic directive + langdetect output filter, ko/ja/en/zh).
 
 ### [nvatar-code-assist](https://github.com/nskit-io/nvatar-code-assist)
 **Claude Code integration via MCP channel.**
