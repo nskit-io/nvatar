@@ -89,20 +89,18 @@ Your avatar's personality, MBTI spectrum, memory, and emotions move between part
 
 Avatar OS is the layer that makes each avatar **act on its own** — not a state machine, but a decision system with distributed judgment and memory-driven behavior.
 
-- **Distributed judgment (judge + core)**: A separate `nvatar-judge` server handles classification (receipt, intent, command) while the core 26B model is reserved for actual dialogue generation. 4-stage fallback chain prevents hallucinated fallbacks — if judgment fails, the room shows a system message instead of a garbage reply.
-- **Source-agnostic state changes**: Master commands, self-decisions, and UI events flow through a single `apply_state_change(source)` path. Only the "why" differs in trace logs; the "what" is one code path — DRY across Phase 1.3 (commands) and Phase 1.4 (autonomy).
+- **Distributed judgment (judge + core)**: A separate lightweight judge service handles classification (receipt, intent, command) while the core 26B model is reserved for actual dialogue generation. A four-stage fallback chain prevents hallucinated fallbacks — if judgment fails at every level, the room shows a system message instead of a garbage reply.
+- **Source-agnostic state changes**: Master commands, self-decisions, and UI events flow through a single state-change path. Only the "why" differs in trace logs; the "what" is one code path.
 - **Activity Density Tiers (T1~T4)**: Resource cost scales linearly with active users.
-  - T1 (0~1d touch): full-tick, full LLM
-  - T2 (1~3d): event-driven
-  - T3 (3~7d): minimal
-  - T4 (7d+): **LLM-free** logic-based memory accrual — dormant avatars cost essentially nothing
+  - T1 (recent touch): full-tick, full LLM
+  - T2 (short idle): event-driven
+  - T3 (medium idle): minimal
+  - T4 (long idle): **LLM-free** logic-based memory accrual — dormant avatars cost essentially nothing
 - **Rest → compaction**: When an avatar enters rest state (master-permitted or auto-idle), it compacts its own long-term memory. A state field becomes an actual behavior trigger, not just a tone hint.
-- **Daily narrative backbone**: Even T4 avatars accumulate one L2 memory event per day — not batch-generated at user return, so there's no "cramming the semester's worth of homework at once" drift.
-- **Trace-based observability**: Every decision lands in `nv_os_trace` + `nv_os_decision` + `nv_os_response`. Full timeline query answers "why didn't Vivi respond?" for any message.
+- **Daily narrative backbone**: Even long-idle avatars accumulate one memory event per day — not batch-generated at user return, so there's no "cramming the semester's worth of homework at once" drift.
+- **Trace-based observability**: Every decision is persisted to dedicated trace tables. Full timeline query answers "why didn't Vivi respond?" for any message.
 
 Phase 1 shipped **2026-04-20** — 12-hour stress test with **655 iterations, zero errors, 100% step-1 success**. Phase 2 (room broadcast + autonomous peer visits + dice-based dispatch) in progress.
-
-Design doc: `AVATAR_OS_DESIGN_V2.md` (internal).
 
 ## The Stack
 
