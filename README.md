@@ -18,7 +18,7 @@
 
 NVatar is an AI avatar chat system that runs entirely on local hardware. Your avatar has a personality, remembers your conversations, feels emotions, and grows over time — all without sending a single message to the cloud (unless it needs to look up a fact).
 
-Built on **Gemma 26B MoE** (Apple Silicon / MLX), with **Claude** as an optional cloud layer for factual accuracy.
+Built on **Gemma 4 26B MoE** (Apple Silicon / MLX), with **Claude** as an optional cloud layer for factual accuracy.
 
 ## Architecture
 
@@ -89,7 +89,7 @@ Your avatar's personality, MBTI spectrum, memory, and emotions move between part
 
 Avatar OS is the layer that makes each avatar **act on its own** — not a state machine, but a decision system with distributed judgment and memory-driven behavior.
 
-- **Distributed judgment (judge + core)**: A separate lightweight judge service handles classification (receipt, intent, command) while the core 26B model is reserved for actual dialogue generation. A four-stage fallback chain prevents hallucinated fallbacks — if judgment fails at every level, the room shows a system message instead of a garbage reply.
+- **Distributed judgment (judge + core)**: A lightweight model handles classification (receipt, intent, command), while the 26B model is reserved for actual dialogue generation. A four-stage fallback chain prevents hallucinated fallbacks — if judgment fails at every level, the room shows a system message instead of a garbage reply.
 - **Source-agnostic state changes**: Master commands, self-decisions, and UI events flow through a single state-change path. Only the "why" differs in trace logs; the "what" is one code path.
 - **Activity Density Tiers (T1~T4)**: Resource cost scales linearly with active users.
   - T1 (recent touch): full-tick, full LLM
