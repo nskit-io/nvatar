@@ -53,12 +53,12 @@ graph TB
 ### [avatar-chat](https://github.com/nskit-io/avatar-chat)
 **Prompt engineering patterns for local LLM character AI.**
 
-How do you make a 26B model behave like a friend, not a chatbot? We tested across 4 versions and 10 personas. Key discovery: larger models need natural language paragraphs, not rule lists. Scored **9.4/10** on our evaluation framework.
+How do you make a 26B model behave like a friend, not a chatbot? We tested across 4 versions and 10 personas. Key discovery: larger models need natural language paragraphs, not rule lists. Evaluated across those personas with an internal rubric.
 
 ### [chat-like-human-memory](https://github.com/nskit-io/chat-like-human-memory)
 **9D emotion + personality evolution + 3-tier memory.**
 
-Your avatar's emotions shift during conversation and decay naturally. Personality evolves over weeks through a novel **decay/commit** mechanism (no prior art in open source). Memory compacts from raw messages → event summaries → fading keywords — like real human memory.
+Your avatar's emotions shift during conversation and decay naturally. Personality evolves over weeks through a **decay/commit** mechanism. Memory compacts from raw messages → event summaries → fading keywords — like real human memory.
 
 ### [customize-local-llm](https://github.com/nskit-io/customize-local-llm)
 **Local model for personality, cloud model for facts.**
@@ -100,7 +100,7 @@ Avatar OS is the layer that makes each avatar **act on its own** — not a state
 - **Daily narrative backbone**: Even long-idle avatars accumulate one memory event per day — not batch-generated at user return, so there's no "cramming the semester's worth of homework at once" drift.
 - **Trace-based observability**: Every decision is persisted to dedicated trace tables. Full timeline query answers "why didn't Vivi respond?" for any message.
 
-Phase 1 shipped **2026-04-20** — 12-hour stress test with **655 iterations, zero errors, 100% step-1 success**. Phase 2 (room broadcast + autonomous peer visits + dice-based dispatch) in progress.
+Built as a prototype and exercised with an extended internal stress run (illustrative, not a benchmark). Room broadcast, autonomous peer visits, and dice-based dispatch are directions we've explored on top of this layer.
 
 ## The Stack
 
@@ -115,25 +115,25 @@ Phase 1 shipped **2026-04-20** — 12-hour stress test with **655 iterations, ze
 
 ## Numbers
 
-- **9.4/10** character quality score (10-persona evaluation)
-- **20x faster** context classification vs cloud routing
+- **Character quality** evaluated across 10 personas with an internal rubric
+- **Local context classification** — no cloud round-trip on the hot path
 - **9 dimensions** of continuous emotion tracking (including curiosity)
 - **3 tiers** of memory with automatic rest-triggered compaction
 - **4 tiers** of activity density — dormant-user cost near zero
-- **655 / 0 / 100%** — 12-hour stress: iterations / errors / step-1 judgment success
+- **Extended internal stress run** — long-running room simulation (illustrative, not a benchmark)
 - **Natural decay** of emotions over conversation toward baseline
 
 ## Why NVatar?
 
 ### Market Opportunity
 - AI companion market is rapidly growing — Replika (30M+ users, cloud-only, shallow emotion models), Character.AI ($1B+ valuation, no 3D or local inference), Gatebox ($300 hardware, limited production)
-- **The gap**: No product combines local AI privacy + deep cognitive architecture + 3D avatar presence
+- **The gap**: few products combine local AI privacy + deep cognitive architecture + 3D avatar presence
 
-### What We've Built (and What Others Haven't)
-- 10-type context routing with local/cloud split (no documented open-source equivalent)
+### What We've Built
+- 10-type context routing with local/cloud split
 - Personality evolution with time-decay commit cycle (academic concept → working implementation)
-- 9-dimensional continuous emotion tracking (Hume AI is cloud-only, no avatar integration)
-- 3D room environment with autonomous avatar movement (no AI chatbot project has this)
+- 9-dimensional continuous emotion tracking, integrated with the 3D avatar
+- 3D room environment with autonomous avatar movement
 - Full voice pipeline (STT + TTS + translation) on a single Mac Studio
 
 ### Business Models
