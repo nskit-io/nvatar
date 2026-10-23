@@ -2,13 +2,15 @@
 
 <p align="center">
   <strong style="font-size: 2rem;">NVatar</strong><br>
-  <em>AI 아바타 채팅 시스템 — 완전 로컬, 완전히 살아있는.</em>
+  <em>AI 아바타 채팅 시스템 — 로컬 LLM 코어, 완전히 살아있는.</em>
 </p>
 
 <p align="center">
-  <a href="https://nskit-io.github.io/nvatar-demo/"><strong>라이브 데모 체험</strong></a> &nbsp;|&nbsp;
+  <a href="https://nskit-io.github.io/nvatar-demo/">라이브 데모 (일시 중단)</a> &nbsp;|&nbsp;
   <a href="https://github.com/nskit-io/nvatar-demo">데모 소스</a>
 </p>
+
+> **안내:** 데모 서버 점검으로 라이브 데모가 일시 중단되었습니다. 소스에서 직접 실행할 수는 있습니다.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/nskit-io/nvatar-demo/main/screenshots/demo_room_hello.gif" width="720" alt="NVatar 데모">
@@ -16,7 +18,7 @@
 
 ---
 
-NVatar는 로컬 하드웨어에서 완전히 구동되는 AI 아바타 채팅 시스템입니다. 아바타는 성격을 갖고, 대화를 기억하고, 감정을 느끼고, 시간이 지나면서 성장합니다 — 사실 확인이 필요한 경우를 제외하면 클라우드에 메시지를 보내지 않습니다.
+NVatar는 로컬 LLM 코어를 중심으로 한 AI 아바타 채팅 시스템입니다. 아바타는 성격을 갖고, 대화를 기억하고, 감정을 느끼고, 시간이 지나면서 성장합니다. 대화 생성은 로컬 모델이 맡고, 사실 확인과 음성 합성(TTS)에는 클라우드 서비스를 사용합니다.
 
 **Gemma 4 26B MoE** (Apple Silicon / MLX) 기반, **Claude**를 사실 정확성을 위한 선택적 클라우드 레이어로 사용.
 
@@ -73,7 +75,7 @@ graph TB
 
 Avatar OS 는 아바타가 **스스로 판단하고 행동하는** 레이어입니다. 상태 기계가 아니라 분산 판단과 기억 기반 행동 시스템.
 
-- **분산 판단 (judge + core)**: 경량 모델이 분류 작업 (수신 판단, 명령 인식) 담당, 26B 모델은 실제 대화 생성에만 사용. 4단 폴백 체인으로 **LLM 환각 폴백을 원천 차단** — 판단 실패 시 룸에 시스템 메시지 표시 (가짜 응답 절대 안 만듦).
+- **분산 판단 (judge + core)**: 경량 모델이 분류 작업 (수신 판단, 명령 인식) 담당, 26B 모델은 실제 대화 생성에만 사용. 4단 폴백 체인으로 환각성 폴백 응답을 줄이도록 설계 — 모든 단계에서 판단이 실패하면 엉뚱한 답 대신 룸에 시스템 메시지를 표시 (프로토타입).
 - **Source-agnostic 상태 변경**: 마스터 명령, 자율 결정, UI 이벤트 모두 단일 상태 변경 경로로 처리. "왜" 만 trace 에 남고 "무엇" 은 하나의 코드 경로로 통일.
 - **Activity Density Tier (T1~T4)**: 리소스 비용이 active user 수에 선형 비례.
   - T1 (최근 터치): 실시간, full LLM
@@ -107,7 +109,7 @@ Avatar OS 는 아바타가 **스스로 판단하고 행동하는** 레이어입�
 - 시간 감쇄 기반 성격 진화 (학술 개념 → 실동작 구현)
 - 9차원 연속 감정 추적, 3D 아바타와 통합
 - 자율 이동 가능한 3D 룸 환경
-- 단일 Mac Studio에서 음성 파이프라인 전체 구동 (STT + TTS + 번역)
+- 아바타 룸과 통합된 음성 파이프라인 (STT + 클라우드 TTS + 번역)
 
 ### 비즈니스 모델
 - **B2C**: 프리미엄 아바타 컴패니언 (구독)
