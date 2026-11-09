@@ -147,6 +147,8 @@ Built as a prototype and exercised with an extended internal stress run (illustr
 
 CC BY-NC-SA 4.0 — see [LICENSE](LICENSE)
 
+> This repository publishes the design pattern and reference material under the MIT License. The NSKit framework itself (runtime, scaffolding, checkers and operating standards) is proprietary to Neoulsoft Inc. and available under a separate commercial license.
+
 ---
 
 ## Support This Project
