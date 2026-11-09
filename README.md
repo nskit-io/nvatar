@@ -65,7 +65,7 @@ Your avatar's emotions shift during conversation and decay naturally. Personalit
 ### [customize-local-llm](https://github.com/nskit-io/customize-local-llm)
 **Local model for personality, cloud model for facts.**
 
-Most conversations are handled locally with sub-second latency. Only factual questions route to the cloud. The avatar asks "Want me to look that up?" before searching — maintaining its persona even during fact-checking. Privacy-first by design.
+Most conversations are handled locally, typically within about 2 seconds, with no cloud round-trip. Only factual questions route to the cloud. The avatar asks "Want me to look that up?" before searching — maintaining its persona even during fact-checking. Privacy-first by design.
 
 ### [vrm-studio](https://github.com/nskit-io/vrm-studio)
 **3D VRM avatar chat room with Three.js + WebSocket.**
@@ -128,7 +128,7 @@ Built as a prototype and exercised with an extended internal stress run (illustr
 ## Why NVatar?
 
 ### Market Opportunity
-- AI companion market is rapidly growing — Replika (30M+ users, cloud-only, shallow emotion models), Character.AI ($1B+ valuation, no 3D or local inference), Gatebox ($300 hardware, limited production)
+- AI companions already have a large audience — e.g. Replika and Character.AI (cloud-based, no 3D avatar or local inference) and Gatebox (a dedicated hardware device)
 - **The gap**: few products combine local AI privacy + deep cognitive architecture + 3D avatar presence
 
 ### What We've Built

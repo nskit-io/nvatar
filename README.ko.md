@@ -10,7 +10,7 @@
   <a href="https://github.com/nskit-io/nvatar-demo">데모 소스</a>
 </p>
 
-> **안내:** 데모 서버 점검으로 라이브 데모가 일시 중단되었습니다. 소스에서 직접 실행할 수는 있습니다.
+> **안내:** 데모 서버 점검으로 라이브 데모가 일시 중단되었습니다. 소스에서 직접 실행할 수 있습니다.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/nskit-io/nvatar-demo/main/screenshots/demo_room_hello.gif" width="720" alt="NVatar 데모">
@@ -59,7 +59,7 @@ graph TB
 ### [customize-local-llm](https://github.com/nskit-io/customize-local-llm)
 **성격은 로컬 모델, 팩트는 클라우드 모델.**
 
-대부분의 대화를 로컬에서 즉각 처리. 사실 질문만 클라우드로 라우팅. 아바타가 검색 전 "찾아볼까?" 물어봄 — 팩트 체크 중에도 페르소나 유지. 프라이버시 우선 설계.
+대부분의 대화를 클라우드 왕복 없이 로컬에서 보통 2초 안팎에 처리. 사실 질문만 클라우드로 라우팅. 아바타가 검색 전 "찾아볼까?" 물어봄 — 팩트 체크 중에도 페르소나 유지. 프라이버시 우선 설계.
 
 ### [vrm-studio](https://github.com/nskit-io/vrm-studio)
 **Three.js + WebSocket 3D VRM 아바타 채팅방.**
@@ -101,7 +101,7 @@ Avatar OS 는 아바타가 **스스로 판단하고 행동하는** 레이어입�
 ## Why NVatar?
 
 ### 시장 기회
-- AI 컴패니언 시장이 급성장 중 — Replika (3천만+ 유저, 클라우드 전용, 얕은 감정 모델), Character.AI ($1B+ 밸류에이션, 3D 없음, 로컬 추론 없음), Gatebox ($300 하드웨어, 소량 생산)
+- AI 컴패니언은 이미 큰 사용자층을 갖고 있습니다 — 예: Replika, Character.AI (클라우드 기반, 3D 아바타·로컬 추론 없음), Gatebox (전용 하드웨어 기기)
 - **공백**: 로컬 AI 프라이버시 + 깊은 인지 아키텍처 + 3D 아바타를 결합한 제품이 드묾
 
 ### 우리가 만든 것

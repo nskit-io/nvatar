@@ -10,7 +10,7 @@
   <a href="https://github.com/nskit-io/nvatar-demo">デモソース</a>
 </p>
 
-> **お知らせ:** デモサーバーのメンテナンスのため、ライブデモは一時停止中です。ソースから実行することは引き続き可能です。
+> **お知らせ:** デモサーバーのメンテナンスのため、ライブデモは一時停止中です。ソースからは引き続き実行できます。
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/nskit-io/nvatar-demo/main/screenshots/demo_room_hello.gif" width="720" alt="NVatarデモ">
@@ -59,7 +59,7 @@ graph TB
 ### [customize-local-llm](https://github.com/nskit-io/customize-local-llm)
 **性格はローカルモデル、ファクトはクラウドモデル。**
 
-ほとんどの会話をローカルで即座に処理。事実の質問のみクラウドにルーティング。アバターが検索前に「調べてみようか？」と聞く — ファクトチェック中もペルソナを維持。プライバシー優先設計。
+ほとんどの会話をクラウド往復なしにローカルで、通常約2秒以内に処理。事実の質問のみクラウドにルーティング。アバターが検索前に「調べてみようか？」と聞く — ファクトチェック中もペルソナを維持。プライバシー優先設計。
 
 ### [vrm-studio](https://github.com/nskit-io/vrm-studio)
 **Three.js + WebSocket 3D VRMアバターチャットルーム。**
@@ -69,7 +69,7 @@ graph TB
 ### [portable-ai-companion](https://github.com/nskit-io/portable-ai-companion)
 **クロスアプリフランチャイズアーキテクチャ。**
 
-アバターの性格、MBTIスペクトラム、記憶、感情がパートナーアプリ間で移動。ホームアプリ（NVatar）がアイデンティティを管理し、パートナーアプリが役割別コンテキストを提供。2022年Neoulsoft特許出願に基づく。
+アバターの性格、MBTIスペクトラム、記憶、感情がパートナーアプリ間で移動。ホームアプリ（NVatar）がアイデンティティを管理し、パートナーアプリが役割別コンテキストを提供。2022年Neoulsoft Inc.の特許出願に基づく。
 
 ## 自律的主体性 (Avatar OS)
 
@@ -101,7 +101,7 @@ Avatar OS は、各アバターが **自ら判断して行動する** レイヤ�
 ## Why NVatar?
 
 ### 市場機会
-- AIコンパニオン市場が急成長中 — Replika（3,000万+ユーザー、クラウド専用、浅い感情モデル）、Character.AI（$1B+バリュエーション、3Dなし、ローカル推論なし）、Gatebox（$300ハードウェア、少量生産）
+- AIコンパニオンはすでに大きな利用者層を持っています — 例: Replika、Character.AI（クラウドベース、3Dアバター・ローカル推論なし）、Gatebox（専用ハードウェア機器）
 - **ギャップ**: ローカルAIプライバシー + 深い認知アーキテクチャ + 3Dアバターを組み合わせた製品は少ない
 
 ### 私たちが構築したもの
